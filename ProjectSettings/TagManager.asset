@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - door
+  - mushroom
+  - waypoint
+  - ghost
   layers:
   - Default
   - TransparentFX
@@ -41,9 +45,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3714637147
+    locked: 0
+  - name: Entity
+    uniqueID: 1912956075
+    locked: 0
+  - name: Spikes
+    uniqueID: 992795119
+    locked: 0
+  - name: Ground
+    uniqueID: 1100165509
+    locked: 0
   - name: Items
     uniqueID: 1306410065
     locked: 0
-  - name: Player
+  - name: Characters
     uniqueID: 1079481971
+    locked: 0
+  - name: Wind
+    uniqueID: 1182380967
     locked: 0

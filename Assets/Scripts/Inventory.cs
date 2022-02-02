@@ -80,6 +80,7 @@ public class Inventory : MonoBehaviour
     public void addSlot()
     {
         Instantiate(inventorySlotPrefab, itemsParent);
+        inventorySlotPrefab.GetComponent<InventorySlot>().isEmpty = true;
         space++;
     }
 

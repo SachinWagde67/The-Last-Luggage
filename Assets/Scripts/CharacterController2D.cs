@@ -23,11 +23,11 @@ public class CharacterController2D : MonoBehaviour
 	private ThrowState throwState;
 	private GameObject teleporter;
 	private Rigidbody2D rb;
-	private int throwNumber = 1;
 	private float horizontal;
 	private const float groundedRadius = .05f; 
 	private const float fallRadius = .05f;
 	private bool grounded;
+	private bool isDestroyed = true;
 	private bool facingRight = true;
 	private bool jump = false;
 
@@ -49,25 +49,33 @@ public class CharacterController2D : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			if(throwState == ThrowState.Throw && throwNumber == 1)
+			if(throwState == ThrowState.Throw)
             {
-				anim.SetTrigger("throw");
+				if(isDestroyed)
+				{ 
+					isDestroyed = false;
+					anim.SetTrigger("throw");
+				}
 			}
 			if(throwState == ThrowState.Teleport)
             {
-				this.gameObject.transform.position = teleporter.transform.position;
-				Destroy(teleporter,0.01f);
-				throwState = ThrowState.Throw;
-				throwNumber = 1;
+				if (!isDestroyed)
+				{
+					this.gameObject.transform.position = teleporter.transform.position;
+					destroyTeleporter();
+				}
+				else
+				{
+					throwState = ThrowState.Throw;
+					isDestroyed = true;
+				}
 			}
 		}
 		if(Input.GetKeyDown(KeyCode.Q))
         {
 			if(throwState == ThrowState.Teleport)
             {
-				Destroy(teleporter, 0.01f);
-				throwState = ThrowState.Throw;
-				throwNumber = 1;
+				destroyTeleporter();
 			}
         }
 	}
@@ -138,19 +146,25 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	private async void throwTeleporter()
-    {
-		throwNumber = 0;
+	{
 		if (facingRight)
-        {
-			teleporter = (GameObject)Instantiate(teleporterObject, throwPoint.position, Quaternion.Euler(0f,0f,0f));
+		{
+			teleporter = (GameObject)Instantiate(teleporterObject, throwPoint.position, Quaternion.Euler(0f, 0f, 0f));
 			teleporter.GetComponent<Teleporter>().Initialize(Vector2.right);
-        }
+		}
 		else
-        {
+		{
 			teleporter = (GameObject)Instantiate(teleporterObject, throwPoint.position, Quaternion.Euler(0f, 0f, 180f));
 			teleporter.GetComponent<Teleporter>().Initialize(Vector2.left);
 		}
 		await new WaitForSeconds(0.5f);
 		throwState = ThrowState.Teleport;
-    }
+	}
+
+	public void destroyTeleporter()
+    {
+		isDestroyed = true;
+		throwState = ThrowState.Throw;
+		Destroy(teleporter);
+	}
 }

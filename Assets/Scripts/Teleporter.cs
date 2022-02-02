@@ -20,4 +20,12 @@ public class Teleporter : MonoBehaviour
     {
         this.direction = direction;
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("door") || other.gameObject.CompareTag("mushroom"))
+        {
+            speed = 0f;
+        }
+    }
 }
