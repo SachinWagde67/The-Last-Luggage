@@ -166,7 +166,7 @@ public class CharacterController2D : MonoBehaviour
 		isDestroyed = true;
 		throwState = ThrowState.Throw;
 		Destroy(teleporter);
-	}
+	} 
 
     private void OnTriggerEnter2D(Collider2D other)
     {

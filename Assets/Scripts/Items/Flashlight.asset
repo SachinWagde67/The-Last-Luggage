@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Flashlight
   icon: {fileID: 21300000, guid: 81f594ac68469784784aa5e0c5f111a9, type: 3}
+  description: Ahhh! its broken!

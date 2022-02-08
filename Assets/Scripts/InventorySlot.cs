@@ -35,7 +35,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (items != null)
         {
-            Inventory.instance.showSlotInfo(items.icon);
+            Inventory.instance.showSlotInfo(items.icon, items.description);
         }
     }
 }

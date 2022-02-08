@@ -27,7 +27,7 @@ public class ItemPickUp : MonoBehaviour
             else
             {
                 inventory.removeTxt.gameObject.SetActive(true);
-                inventory.showItemInfo(this.item.icon);
+                inventory.showItemInfo(this.item.icon, this.item.description);
             }
         }
     }

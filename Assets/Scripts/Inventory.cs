@@ -27,8 +27,10 @@ public class Inventory : MonoBehaviour
     public int space;
     public GameObject slotInfo;
     public Image slotInfoIcon;
+    public TextMeshProUGUI slotInfoDescription;
     public GameObject itemInfo;
     public Image itemInfoIcon;
+    public TextMeshProUGUI itemInfoDescription;
     public TextMeshProUGUI removeTxt;
     public Transform itemsParent; 
     public GameObject inventorySlotPrefab;
@@ -65,15 +67,17 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void showSlotInfo(Sprite icon)
+    public void showSlotInfo(Sprite icon, string description)
     {
         slotInfoIcon.sprite = icon;
+        slotInfoDescription.text = description;
         slotInfo.SetActive(true);
     }
 
-    public void showItemInfo(Sprite icon)
+    public void showItemInfo(Sprite icon, string description)
     {
         itemInfoIcon.sprite = icon;
+        itemInfoDescription.text = description;
         itemInfo.SetActive(true);
     }
 

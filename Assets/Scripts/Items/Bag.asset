@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bag
   icon: {fileID: 21300000, guid: 299599986b195ec44ba0d4bf6f4d4804, type: 3}
+  description: Wow! I can Increase my bag space now!

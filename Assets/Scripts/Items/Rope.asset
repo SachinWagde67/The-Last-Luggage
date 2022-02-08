@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Rope
   icon: {fileID: 21300000, guid: 81db573bae342c546ad4eb703ead30a5, type: 3}
+  description: It might come in handy?
