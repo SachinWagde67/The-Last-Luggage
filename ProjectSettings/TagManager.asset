@@ -8,6 +8,8 @@ TagManager:
   - mushroom
   - waypoint
   - ghost
+  - ground
+  - complete
   layers:
   - Default
   - TransparentFX

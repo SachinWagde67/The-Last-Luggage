@@ -6,7 +6,7 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     public Button removeButton;
     Items items;
-    public bool isEmpty;
+    public bool isEmpty = true;
 
     public void AddItem(Items newItem)
     {

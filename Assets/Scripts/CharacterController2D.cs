@@ -167,4 +167,12 @@ public class CharacterController2D : MonoBehaviour
 		throwState = ThrowState.Throw;
 		Destroy(teleporter);
 	}
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+		if (other.gameObject.CompareTag("complete"))
+		{
+			speed = 0;
+		}
+	}
 }
