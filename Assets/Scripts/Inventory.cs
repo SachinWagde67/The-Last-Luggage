@@ -50,10 +50,7 @@ public class Inventory : MonoBehaviour
         }
 
         items.Add(item);
-        if (onItemChangedCallback != null)
-        {
-            onItemChangedCallback.Invoke();
-        }
+        onItemChangedCallback?.Invoke();
         return true;
     }    
 
@@ -61,10 +58,7 @@ public class Inventory : MonoBehaviour
     {
         items.Remove(item);
         slotInfo.SetActive(false);
-        if (onItemChangedCallback != null)
-        {
-            onItemChangedCallback.Invoke();
-        }
+        onItemChangedCallback?.Invoke();
     }
 
     public void showSlotInfo(Sprite icon, string description)

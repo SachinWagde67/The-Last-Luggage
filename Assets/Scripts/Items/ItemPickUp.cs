@@ -41,6 +41,4 @@ public class ItemPickUp : MonoBehaviour
             inventory.removeTxt.gameObject.SetActive(false);
         }
     }
-
-
 }
