@@ -36,7 +36,6 @@ public class Cloud : MonoBehaviour
         gameObject.SetActive(false);
         await new WaitForSeconds(2f);
         CloudOn();
-
     }
 
     private void CloudOn()

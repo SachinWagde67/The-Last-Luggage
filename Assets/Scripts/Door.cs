@@ -11,11 +11,11 @@ public class Door : MonoBehaviour
     private void Start()
     {
         GameCompletePanel.SetActive(false);
+        inventory = Inventory.instance;
     }
 
     private void Update()
     {
-        inventory = Inventory.instance;
         string items = "Items Collected : " + inventory.items.Count + " / 15";
         ItemsCount.text = items;
     }

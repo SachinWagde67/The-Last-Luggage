@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SecretArea : MonoBehaviour
 {
@@ -15,7 +13,6 @@ public class SecretArea : MonoBehaviour
             {
                 tile.SetActive(false);
             }
-
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -26,9 +23,6 @@ public class SecretArea : MonoBehaviour
             {
                 tile.SetActive(true);
             }
-
         }
     }
-
-   
 }

@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
     private float bounce;
     private Animator anim;
     private int count = 0;
+    private float bounce1 = 18f;
+    private float bounce2 = 24f;
 
     private void Start()
     {
@@ -20,12 +20,12 @@ public class Mushroom : MonoBehaviour
             count++;
             if(count == 1)
             {
-                bounce = 18f;
+                bounce = bounce1;
             }
             else if(count == 2)
             {
                 count = 0;
-                bounce = 24f;
+                bounce = bounce2;
             }
             anim.SetTrigger("bounce");
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
