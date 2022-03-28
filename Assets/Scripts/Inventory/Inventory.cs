@@ -17,8 +17,6 @@ public class Inventory : SingletonGeneric<Inventory>
     public Image itemInfoIcon;
     public TextMeshProUGUI itemInfoDescription;
     public TextMeshProUGUI removeTxt;
-    public Transform itemsParent; 
-    public GameObject inventorySlotPrefab;
 
     public bool addItem(Items item)
     {
@@ -55,19 +53,19 @@ public class Inventory : SingletonGeneric<Inventory>
 
     public void addSlot()
     {
-        Instantiate(inventorySlotPrefab, itemsParent);
-        inventorySlotPrefab.GetComponent<InventorySlot>().isEmpty = true;
+        GameObject slot = ObjectPool.Instance.GetFromPool();
+        slot.SetActive(true);
+        slot.GetComponent<InventorySlot>().isEmpty = true;
         space++;
     }
 
     public void removeSlot(bool isEmptySlot)
     {
-        Transform lastSlot = itemsParent.GetChild(itemsParent.childCount - 1);
         if (!isEmptySlot)
         {
             removeItem(items[items.Count - 1]);
         }
-        Destroy(lastSlot.gameObject);
+        ObjectPool.Instance.AddBackToPool();
         space--;
     }
 }

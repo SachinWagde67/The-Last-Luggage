@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class InventoryUI : SingletonGeneric<InventoryUI>
 {
     Inventory inventory;
     public Transform itemsParent;
-    public InventorySlot[] slots;
+    public GameObject[] slots;
+    private int activeSlots;
 
     void Start()
     {
@@ -13,31 +15,29 @@ public class InventoryUI : SingletonGeneric<InventoryUI>
         inventory.onItemChangedCallback += UpdateUI;
     }
 
-    private void updateSlots()
+    public void updateSlots()
     {
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        slots = ObjectPool.Instance.slotPool.ToArray<GameObject>();
     }
 
     private void UpdateUI()
     {
-        updateSlots();
         for (int i = 0; i < slots.Length; i++)
         {
             if(i < inventory.items.Count)
             {
-                slots[i].AddItem(inventory.items[i]);
+                slots[i].GetComponent<InventorySlot>().AddItem(inventory.items[i]);
             }
             else
             {
-                slots[i].ClearSlot();
+                slots[i].GetComponent<InventorySlot>().ClearSlot();
             }
         }
     }
     
     public int getSlotsCount()
     {
-        updateSlots();
-        return slots.Length;
+        return activeSlots;
     }
 
     private void OnDisable()

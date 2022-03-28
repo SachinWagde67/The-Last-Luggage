@@ -33,10 +33,11 @@ public class Spike : MonoBehaviour
         if (controller != null && !canRemoveSlot)
         {
             canRemoveSlot = true;
-            int slotCount = InventoryUI.Instance.getSlotsCount();
+            int slotCount = ObjectPool.Instance.getActiveSlotSize();
             if (slotCount > 1)
             {
-                inventory.removeSlot(InventoryUI.Instance.slots[slotCount - 1].isEmpty);
+                GameObject lastActiveSlot = InventoryUI.Instance.slots[slotCount - 1];
+                inventory.removeSlot(lastActiveSlot.GetComponent<InventorySlot>().isEmpty);
             }
             if(slotCount == 1 && inventory.items.Count > 0)
             {
