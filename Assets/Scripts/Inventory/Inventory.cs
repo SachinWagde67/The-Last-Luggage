@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class Inventory : SingletonGeneric<Inventory>
-{ 
+{
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 

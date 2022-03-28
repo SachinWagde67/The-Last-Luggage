@@ -13,13 +13,14 @@ public class InventoryUI : SingletonGeneric<InventoryUI>
         inventory.onItemChangedCallback += UpdateUI;
     }
 
-    public void updateSlots()
+    private void updateSlots()
     {
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
 
     private void UpdateUI()
     {
+        updateSlots();
         for (int i = 0; i < slots.Length; i++)
         {
             if(i < inventory.items.Count)
@@ -35,6 +36,12 @@ public class InventoryUI : SingletonGeneric<InventoryUI>
     
     public int getSlotsCount()
     {
+        updateSlots();
         return slots.Length;
+    }
+
+    private void OnDisable()
+    {
+        inventory.onItemChangedCallback -= UpdateUI;
     }
 }
