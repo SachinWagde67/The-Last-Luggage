@@ -13,7 +13,6 @@ A 2D puzzle platformer game, in which you have to collect items as many as possi
 - Used Scriptable Objects for storing items.
 - Fully Customizable items and inventory.
 - Made an Inventory System.
-- Used Area effectors for making winds.
 
 ![](Images/1.png)
 ![](Images/2.png)
