@@ -6,7 +6,7 @@ A 2D puzzle platformer game, in which you have to collect items as many as possi
 - Throw teleporter using E key.
 - Destroy teleporter using Q key.
 
-# Features of the game
+# Implementation and Design Patterns Used
 - Used Singleton Pattern for inventory.
 - Used Object Pooling for inventory slots.
 - Used Observer Pattern for inventory.
