@@ -9,7 +9,7 @@ A 2D puzzle platformer game, in which you have to collect items as many as possi
 # Features of the game
 - Used Singleton Pattern for inventory.
 - Used Object Pooling for inventory slots.
-- Used Observer Pattern.
+- Used Observer Pattern for inventory.
 - Used Scriptable Objects for storing items.
 - Fully Customizable items and inventory.
 - Made an Inventory System.
