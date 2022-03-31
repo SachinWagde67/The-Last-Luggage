@@ -16,7 +16,7 @@ public class PushButton : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             buttonNotPressed.SetActive(false);
             buttonPressed.SetActive(true);
@@ -27,7 +27,7 @@ public class PushButton : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             buttonNotPressed.SetActive(true);
             buttonPressed.SetActive(false);

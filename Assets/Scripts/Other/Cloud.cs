@@ -12,7 +12,7 @@ public class Cloud : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<CharacterController2D>() != null)
+        if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
             enable = true;
             CloudOff();

@@ -29,7 +29,7 @@ public class Spike : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        CharacterController2D controller = other.gameObject.GetComponent<CharacterController2D>();
+        PlayerController controller = other.gameObject.GetComponent<PlayerController>();
         if (controller != null && !canRemoveSlot)
         {
             canRemoveSlot = true;
@@ -48,7 +48,7 @@ public class Spike : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             canRemoveSlot = false;
             removeSlotTimer = timer;

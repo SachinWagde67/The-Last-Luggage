@@ -4,7 +4,7 @@ public class Ghost : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private bool canPatrol;
-    [SerializeField] private CharacterController2D controller;
+    [SerializeField] private PlayerController controller;
     [SerializeField] private GameObject[] waypoint;
     private bool movingRight = false;
     private Inventory inventory;
@@ -63,7 +63,7 @@ public class Ghost : MonoBehaviour
         {
             controller.destroyTeleporter();
         }
-        if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             int slotCount = ObjectPool.Instance.getActiveSlotSize();
             if (slotCount > 1)

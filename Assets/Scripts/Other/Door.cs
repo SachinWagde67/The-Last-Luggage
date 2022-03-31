@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.GetComponent<CharacterController2D>() != null)
+        if(other.gameObject.GetComponent<PlayerController>() != null)
         {
             GameCompletePanel.SetActive(true);
         }

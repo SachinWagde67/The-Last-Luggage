@@ -7,7 +7,7 @@ public class SecretArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             foreach (GameObject tile in Tiles)
             {
@@ -17,7 +17,7 @@ public class SecretArea : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<CharacterController2D>() != null)
+        if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             foreach (GameObject tile in Tiles)
             {
